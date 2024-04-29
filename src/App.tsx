@@ -16,6 +16,17 @@ import UserNewAppointment from "./pages/userNewAppointment";
 import SettingsView from "./pages/settingsView";
 import { AuthProvider } from "./auth/AuthContext";
 import PrivateRoute from "./auth/PrivateRoute";
+import { useLayoutEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function FooterWrapper() {
   const location = useLocation();
@@ -27,6 +38,7 @@ function FooterWrapper() {
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <AuthProvider>
       <Navbar />
         <Routes>

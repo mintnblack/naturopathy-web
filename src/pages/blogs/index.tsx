@@ -256,7 +256,7 @@ const Blogs: React.FC = () => {
                               Find featured blogs on{" "}
                               {category.name.toLowerCase()}.
                             </p>
-                            <a href={`/blogs/category/${category.id}`}>
+                            <a href={`/blogs/category/${category.id}`} style={{textDecoration: "none",color:"#67782d"}}>
                               View all
                             </a>
                           </div>

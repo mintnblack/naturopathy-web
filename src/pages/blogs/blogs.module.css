@@ -96,7 +96,8 @@
 .sectionHeading a {
   margin: 0;
   font-size: 12px;
-  color: #67782d !important;
+  color: #67782d ;
+  text-decoration: none;
 }
 
 .card {
