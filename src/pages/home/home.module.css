@@ -1,0 +1,454 @@
+/**********************************************************************************************************/
+
+.backgroundImage {
+  background-image: url("../../assets/images/background/bg1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+.overlayImage {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.captionLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.heading {
+  color: #000;
+  font-size: 4em;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.subheading {
+  color: #000;
+  font-size: 1.25em;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.button {
+  position: relative;
+  padding: 10px 20px;
+  background-color: #9bc200;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  width: 214px;
+  border-radius: 0px 8px 0px 8px;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.cardSliderSection {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #7e9a23;
+  padding: 40px !important;
+  width: 100%;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 54px;
+  color: #ffffff;
+  line-height: 63px;
+  font-weight: 500;
+}
+.sectionHeading span {
+  margin: 0;
+  font-size: 51px;
+  color: #ffffff;
+  line-height: 63px;
+  font-weight: 700;
+}
+
+.aboutSection {
+  display: flex;
+  background-color: #b8db3e;
+  width: 100%;
+}
+.aboutImage img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.aboutContent {
+  padding: 75px 75px;
+  text-align: justify;
+}
+
+.aboutContent h2 {
+  font-size: 64px;
+  font-weight: 400;
+  text-align: end;
+  padding-bottom: 40px;
+}
+.aboutContent p {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 31.5px;
+}
+
+.cta {
+  margin-top: -300px;
+  padding: 100px 80px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Ensure overlay is above section1 */
+}
+
+.callbackFormSection {
+  display: flex;
+  width: 100%;
+}
+
+.callbackFormSection .section1 {
+  background-color: #4b5320;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 100px;
+  padding-top: 200px;
+}
+
+.callbackFormSection .labelBadge {
+  position: relative;
+  background-color: #c3e160;
+  color: #000;
+  padding: 5px 50px 5px 20px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  margin-top: 20px;
+}
+
+.callbackFormSection .input {
+  margin-top: -14px;
+  padding: 12px 12px;
+  border-radius: 20px;
+  border: 1px solid #9bc200;
+  margin-bottom: 30px;
+}
+
+.callbackFormSection .textarea {
+  margin-top: -14px;
+  padding: 12px 12px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  height: 200px;
+}
+
+.callbackFormSection button {
+  position: relative;
+  padding: 15px 20px;
+  background-color: #c3e160;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  width: 214px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 1em;
+}
+.callbackFormSection button:hover {
+  background-color: #a7d001;
+  color: #000;
+}
+.callbackFormSection .section2 {
+  background-color: #7e9a22;
+}
+
+.callbackFormSection .section2 .sectionHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+  text-align: end !important;
+  flex-direction: column;
+}
+
+.testimonial {
+  display: flex;
+  background-image: url("../../assets/images/home/testimonialBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #000;
+  padding: 20px;
+  height: auto;
+  position: relative;
+}
+
+.testimonialQuotes {
+  background-image: url("../../assets/images/home/testimonialQuotes.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.testimonial h2 {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  padding: 50px 0;
+}
+.testimonial h3 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+.testimonial p {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+.testimonial p.sub {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+.displayNone {
+  display: none;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 480px) {
+  .overlayImage {
+    opacity: 0.8;
+    justify-content: center;
+  }
+
+  .cardSliderSection {
+    flex-direction: column;
+  }
+
+  .captionLeft {
+    align-items: center;
+  }
+  .heading {
+    font-size: 3em;
+  }
+  .sectionHeading {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .sectionHeading h2 {
+    display: flex;
+    font-size: 28px;
+  }
+  .sectionHeading span {
+    font-size: 28px;
+    padding-left: 10px;
+  }
+  .paddingCard {
+    margin: 0;
+  
+  }
+  
+.aboutSection {
+  flex-direction: column;
+}
+
+  .aboutContent {
+    padding: 0 30px;
+  }
+  .cta {
+    margin-top: 0;
+    padding: 0px 20px;
+  }
+  .callbackFormSection .section1 {
+    padding: 350px 40px 40px 40px;
+  }
+  .callbackFormSection .section2 {
+    display: none;
+  }
+  .callbackFormSection button {
+    margin: 0;
+  }
+
+  .testimonial h2 {
+    font-size: 26px;
+    padding: 20px 0;
+  }
+  .testimonial h3 {
+    font-size: 26px;
+    padding: 10px 0;
+  }
+  .testimonial p {
+    font-size: 18px;
+    margin: 0;
+  }
+  .testimonial p.sub {
+    text-align: center;
+    padding: 2px 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .displayBlock {
+    display: block;
+  }
+  .overlayImage {
+    opacity: 0.8;
+    justify-content: center;
+  }
+
+  .cardSliderSection {
+    flex-direction: column;
+  }
+
+  .captionLeft {
+    align-items: center;
+  }
+
+  .sectionHeading {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .sectionHeading h2 {
+    display: flex;
+    font-size: 30px;
+  }
+  .sectionHeading span {
+    font-size: 30px;
+    padding-left: 10px;
+  }
+  .cards {
+    width: 100%;
+  }
+  .paddingCard {
+    margin: 0 6px;
+  }
+  .aboutSection {
+    flex-direction: column;
+  }
+  .aboutContent {
+    padding: 0 40px;
+  }
+  .callbackFormSection .section2 {
+    display: none;
+  }
+  .callbackFormSection .section1 {
+    padding-top: 300px;
+  }
+  .cta {
+    margin-top: -20%;
+    padding: 0px 10px;
+  }
+  .testimonial h2 {
+    font-size: 32px;
+    padding: 20px 0;
+  }
+  .testimonial h3 {
+    font-size: 32px;
+    padding: 10px 0;
+  }
+  .testimonial p {
+    font-size: 28px;
+    margin: 0;
+  }
+  .testimonial p.sub {
+    text-align: center;
+    padding: 2px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .displayBlock {
+    display: block;
+  }
+  .overlayImage {
+    opacity: 0.8;
+  }
+
+  .captionLeft {
+    align-items: center;
+  }
+  .cardSliderSection {
+    flex-direction: column;
+  }
+  .sectionHeading {
+    display: flex;
+  }
+  .sectionHeading h2 {
+    display: flex;
+    font-size: 30px;
+  }
+  .sectionHeading span {
+    font-size: 30px;
+    padding-left: 10px;
+  }
+  .paddingCard {
+    margin: 0 6px;
+  }
+  .aboutContent {
+    padding: 20px;
+  }
+  .aboutContent h2 {
+    text-align: start;
+    padding: 10px 20px;
+  }
+  .aboutContent p {
+    padding: 10px 10px;
+  }
+  .aboutImage {
+    display: flex;
+    justify-content: center;
+  }
+  .cta {
+    margin-top: 0;
+    padding: 0px 0px;
+  }
+  .callbackFormSection .section1 {
+    padding-top: 200px;
+  }
+  .testimonial {
+    display: block;
+  }
+  .testimonial h2 {
+    font-size: 28px;
+    padding: 10px 0;
+  }
+  .testimonial p {
+    font-size: 12px;
+  }
+  .testimonial h3 {
+    font-size: 23px;
+  }
+  .testimonial p.sub {
+    font-size: 14px;
+    padding: 0 0;
+  }
+  .testimonialQuotes {
+    background-image: none;
+  }
+}

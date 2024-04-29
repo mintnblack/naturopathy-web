@@ -1,0 +1,44 @@
+
+.userloadingScreen{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 260px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+.loadingScreen{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+.loadingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingContainer h1{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .loadingScreen{
+        left: 0;
+    }
+}

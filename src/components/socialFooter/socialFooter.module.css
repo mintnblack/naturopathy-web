@@ -1,0 +1,97 @@
+.socialIconsSection {
+  width: 100%;
+  height: 175px;
+  background-color: #043927;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialIconsBanner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.socialTitle {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  margin: auto;
+}
+
+.socialIconsRow {
+  display: flex;
+  /* Removed justify-content: center; */
+  align-items: center;
+  flex-wrap: wrap; /* Wrap icons to the next line if they overflow */
+}
+
+.socialIcon {
+  margin: 0px 40px;
+}
+
+.socialOrange1 {
+  height: auto;
+  padding: 0 0 0 10px;
+  margin-top: 0px;
+}
+
+.socialOrange2 {
+  height: auto;
+  margin-bottom: -200px;
+}
+
+@media (max-width: 480px) {
+  .socialOrange1 {
+    display: none;
+  }
+  .socialOrange2 {
+    display: none;
+  }
+  .socialTitle {
+    padding-top: 20px;
+  }
+  .socialIcon {
+    margin: 20px 16px; /* Adjust margin for better spacing between icons */
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .socialOrange1 {
+    display: none;
+  }
+  .socialOrange2 {
+    display: none;
+  }
+  .socialTitle {
+    padding-top: 20px;
+  }
+  .socialIconsRow {
+    justify-content: center; /* Re-add justification for centering on smaller screens */
+  }
+
+  .socialIcon {
+    margin: 10px 20px; /* Adjust margin for better spacing between icons */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .socialTitle {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin: auto;
+  }
+  .socialOrange1 {
+    display: none;
+  }
+  .socialOrange2 {
+    display: none;
+  }
+}

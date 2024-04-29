@@ -1,0 +1,75 @@
+.main {
+  margin-left: 280px;
+  padding-right: 50px;
+  margin-top: 20px;
+}
+
+.main .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main h2 {
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.main .titleUnderline {
+  border: none;
+  height: 2px;
+  background-color: #000;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.main p span {
+  font-weight: 700;
+}
+
+.main .appointmentButton button {
+  background-color: #9bc200;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+ margin-top: 8px;
+}
+
+
+
+@media (max-width:1024px){
+  .main {
+    margin-left: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .main .flex {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .main h2 {
+    /* padding: 20px 20px 0 20px; */
+  }
+
+  .main .appointmentButton {
+    /* padding: 0 20px; */
+    /* margin-top:16px */
+  }
+
+  .main .appointmentButton button {
+    width: 100%;
+  }
+
+
+
+}

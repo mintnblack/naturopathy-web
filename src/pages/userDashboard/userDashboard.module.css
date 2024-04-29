@@ -1,0 +1,164 @@
+.main {
+  margin-left: 280px;
+  padding-right: 50px;
+  margin-top: 20px;
+}
+
+.main .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboardTitle {
+  margin: 0;
+}
+
+.main h2 {
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.main .titleUnderline {
+  border: none;
+  height: 2px;
+  background-color: #000;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.customTableBackground {
+  background: linear-gradient(180deg, #e1ff97 0%, #ebffbc 100%);
+}
+
+.customTableBackground h2 {
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.customTableBackground thead th {
+  background: linear-gradient(180deg, #e1ff97 0%, #ebffbc 100%);
+  border-radius: 0;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.customTableBackground tbody td {
+  background: linear-gradient(180deg, #e1ff97 0%, #ebffbc 100%);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.scheduledColor {
+  background: #e2d900 !important;
+  border: 1px solid #cec600;
+  color: #000;
+}
+
+.cancelledColor {
+  background: #ff533c !important;
+  border: 1px solid #c82b17;
+  color: #000;
+}
+
+.completedColor {
+  background: #46ca3c !important;
+  border: 1px solid #1bb610;
+  color: #000;
+}
+
+.pendingColor {
+  background: #fff654 !important;
+  border: 1px solid #fcef01;
+  color: #000;
+}
+
+.rejectedColor{
+  background: #d9534f !important;
+  border: 1px solid #ff0800;
+  color: #000;
+}
+
+.rescheduledColor{
+  background:#7dc7f8  !important;
+  border: 1px solid #0062a3;
+  color: #000;
+}
+
+.unavailableColor{
+  background: #d07ef0 !important;
+  border: 1px solid #9500d0;
+  color: #000;
+}
+
+.main .appointmentButton button {
+  background-color: #9bc200;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top:16px
+}
+
+
+.linkDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: #878585;
+  text-decoration: none;
+}
+
+.linkEnabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+
+@media (max-width:1024px){
+  .main {
+    margin-left: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .main .flex {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* .main h2 {
+    padding: 20px 20px 0 20px;
+  }
+
+  .main .appointmentButton {
+    padding: 0 20px;
+    margin-top: 20px;
+  } */
+
+  .main .appointmentButton button {
+    width: 100%;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  .customTableBackground h2 {
+    padding: 10px 20px;
+  }
+
+}

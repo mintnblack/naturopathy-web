@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background{
+  background: linear-gradient(180deg, #E3FE89 0%, #B6D54D 29.89%, #DAF874 69.48%, #D6FF4C 100%) !important;
+}
+
+.content-main{
+  padding-top:120px !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-control-prev {
+  margin-left: -75px !important;
+}
