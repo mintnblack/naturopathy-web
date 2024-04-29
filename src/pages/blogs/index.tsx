@@ -133,7 +133,7 @@ const Blogs: React.FC = () => {
 
   const getChunkSize = () => {
     if (screenWidth < 481) return 1;
-    else if (screenWidth < 768) return 2;
+    else if (screenWidth < 768) return 1;
     else return 4;
   };
 
