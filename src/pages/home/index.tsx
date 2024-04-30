@@ -12,8 +12,8 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
-import overlayImage1 from "../../assets/images/home/homepageBannerOverlay1.png";
-import overlayImage2 from "../../assets/images/home/homepageBannerOverlay2.png";
+import overlayImage1 from "../../assets/images/home/1.png";
+import overlayImage2 from "../../assets/images/home/2.png";
 import Design from "./home.module.css";
 import bannerBackground from "../../assets/images/background/bg1.png";
 import arrowRight from "../../assets/images/icons/arrow-right.png";
@@ -191,7 +191,7 @@ const Home: React.FC = () => {
 
   const screenWidth = window.innerWidth;
 
-  const chunkSize = screenWidth < 481 ? 1 : screenWidth < 768 ? 2 : 4;
+  const chunkSize = screenWidth < 481 ? 1 : screenWidth < 768 ? 2 : 3;
 
   const chunks: Item[][] = blogs.reduce<Item[][]>(
     (resultArray, item, index) => {
@@ -220,24 +220,18 @@ const Home: React.FC = () => {
           <ToastContainer position="bottom-right" />
           <Carousel
             fade
-            style={{ width: "100%" }}
             controls={true}
             indicators={false}
-            className={`${Design.carousel}`}
             nextIcon={
               <img src={arrowRight} className={Design.carouselControlBg} />
             }
             prevIcon={<img src={arrowLeft} />}
           >
             <Carousel.Item>
-              <div
-                className={Design.backgroundImage}
-                style={{ backgroundImage: `url(${bannerBackground})` }}
-              >
-                <div className={Design.overlayImage}>
-                  <img src={overlayImage1} alt="Overlay Image 1" />
-                </div>
+              <div className={Design.backgroundImage}>
+                <img src={overlayImage1} alt="Overlay Image 1" />
               </div>
+
               <Carousel.Caption className={Design.captionLeft}>
                 <h1 className={Design.heading}>Heading 1</h1>
                 <h2 className={Design.subheading}>Subheading 1</h2>
@@ -247,13 +241,8 @@ const Home: React.FC = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <div
-                className={Design.backgroundImage}
-                style={{ backgroundImage: `url(${bannerBackground})` }}
-              >
-                <div className={Design.overlayImage}>
-                  <img src={overlayImage2} alt="Overlay Image 1" />
-                </div>
+              <div className={Design.backgroundImage}>
+                <img src={overlayImage2} alt="Overlay Image 1" />
               </div>
               <Carousel.Caption className={Design.captionLeft}>
                 <h1 className={Design.heading}>Heading 2</h1>
@@ -264,7 +253,7 @@ const Home: React.FC = () => {
           </Carousel>
 
           <div className={Design.cardSliderSection}>
-            <Col xs={12} md={2}>
+            <Col xs={12} sm={12} md={2}>
               <div>
                 <div className={Design.sectionHeading}>
                   <h2>Featured</h2>
@@ -285,29 +274,27 @@ const Home: React.FC = () => {
               >
                 {chunks.map((chunk, chunkIndex) => (
                   <Carousel.Item key={chunkIndex}>
-                    <div
-                      className={`${Design.cards} d-flex justify-content-around`}
-                    >
+                    <div className={Design.cards}>
                       {chunk.map((item, index) => (
                         <Card
                           key={index}
-                          style={{ width: "16rem" }}
                           className={Design.paddingCard}
                           onClick={() => toBlog(item.id)}
+                          style={{ height: "380px" }}
                         >
                           <div className={Design.imageContainer}>
                             <Card.Img
                               variant="top"
                               src={`${BASE_URL}/image/${item.image_path}`}
-                              style={{
-                                padding: "12px 6px 0 6px",
-                                width: "238px",
-                                height: "261px",
-                              }}
+                              style={{ objectFit: "cover" }} // Ensures image fills container
                             />
                           </div>
                           <Card.Body>
-                            <Card.Title>{item.title}</Card.Title>
+                            <Card.Title>
+                              {item.title.length > 55
+                                ? item.title.slice(0, 55) + "..."
+                                : item.title}
+                            </Card.Title>
                             {/* <Card.Text>{item.description}</Card.Text> */}
                           </Card.Body>
                         </Card>
@@ -360,7 +347,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className={Design.callbackFormSection} id="contact">
-            <Col md={8} className={Design.section1}>
+            <Col md={8} sm={12} xs={12} className={Design.section1}>
               {/* <div className={`${Design.displayBlock} ${Design.displayNone}`}>
                 <div
                   className={`${Design.sectionHeading} ${Design.callBacksectionHeading}`}
@@ -369,6 +356,15 @@ const Home: React.FC = () => {
                   <h2>Form</h2>
                 </div>
               </div> */}
+              <div className={Design.callbackTitle}>
+              <div className={Design.sectionHeading}>
+                <span>Callback &nbsp;</span>
+                <h2>Form</h2>
+              </div>
+              <div className={Design.sectionHeading}>
+                <p>Feel Free to contact us with any Queries!</p>
+              </div>
+              </div>
               <Form onSubmit={onSubmitForm}>
                 <Row>
                   <Col md={6}>

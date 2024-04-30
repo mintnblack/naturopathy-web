@@ -10,13 +10,15 @@ const CTA: React.FC = () => {
 
   return (
     <div>
-      <div className={Design.ctaBanner}>
-        <div className={Design.ctaContent}>
-          <h2>Get an Appointment </h2> <span>NOW !</span>
-        </div>
-        <button className={Design.ctaButton} onClick={toRegistration}>Register for consultation</button>
+    <div className={Design.ctaBanner}>
+      <div className={Design.ctaContent}>
+        <h2>Get an Appointment </h2> <span>NOW !</span>
       </div>
+      <button className={Design.ctaButton} onClick={toRegistration}>
+        Register for consultation
+      </button>
     </div>
+  </div>
   );
 };
 
