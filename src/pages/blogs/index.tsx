@@ -249,9 +249,11 @@ const Blogs: React.FC = () => {
                     <Row key={category.id} className={Design.cardSliderSection}>
                       <Col xs={12} sm={12} md={2}>
                         <div>
-                          <div className="sectionHeading">
+                          <div className={Design.sectionLeftTitle}>
+                            <div className={Design.title}>
                             <span>More On</span>
                             <h2>{category.name}</h2>
+                            </div>
                             <p>
                               Find featured blogs on{" "}
                               {category.name.toLowerCase()}.
@@ -324,7 +326,7 @@ const Blogs: React.FC = () => {
             <Row>
               <Col xs={12} md={12}>
                 <div
-                  className={`${Design.blogSideSection} ${Design.latestBlog}`}
+                  className={` ${Design.latestBlog}`}
                 >
                   {blogs.slice(0, 4).map((blog, index) => (
                     <div
@@ -335,7 +337,7 @@ const Blogs: React.FC = () => {
                       <img
                         src={`${BASE_URL}/image/${blog.image_path}`}
                         alt={blog.title}
-                        style={{ width: "350px", height: "200px" }}
+                        // style={{ width: "350px", height: "200px" }}
                       />
                       <div className={Design.latestBlogContent}>
                         <p className={Design.latestBlogTitle}>{blog.title}</p>

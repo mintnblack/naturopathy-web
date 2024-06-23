@@ -137,7 +137,7 @@ const BlogsByCategory: React.FC = () => {
             <Row>
               <Col xs={12} md={12}>
                 <div
-                  className={`${Design.blogSideSection} ${Design.latestBlog}`}
+                  className={` ${Design.latestBlog}`}
                 >
                   {blogs.slice(0, 4).map((blog, index) => (
                     <div key={index} className={Design.latestBlogItem}>

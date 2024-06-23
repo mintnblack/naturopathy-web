@@ -72,31 +72,33 @@
   padding: 0;
 }
 
-.sectionHeading {
+.sectionLeftTitle {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
 
-.sectionHeading h2 {
+.sectionLeftTitle h2 {
   margin: 0;
   font-size: 30px;
   color: #000;
   font-weight: 500;
 }
-.sectionHeading span {
+.sectionLeftTitle span {
   margin: 0;
   font-size: 16px;
   color: #000;
   font-weight: 400;
 }
-.sectionHeading p {
+.sectionLeftTitle p {
   margin: 0;
   font-size: 12px;
   color: #67782d;
 }
-.sectionHeading a {
+.sectionLeftTitle a {
   margin: 0;
   font-size: 12px;
-  color: #67782d ;
+  color: #67782d;
   text-decoration: none;
 }
 
@@ -162,7 +164,8 @@
 
 .latestBlogItem img {
   margin-right: 0px; /* Adjust spacing between image and text */
-  width: 30%;
+  width: 350px;
+  height: 200px;
   border-radius: 8px;
 }
 
@@ -231,15 +234,46 @@
   .cardSliderSection {
     justify-content: center;
   }
+
   .sectionHeading {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+  }
+  .sectionLeftTitle {
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  .sectionLeftTitle p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .sectionLeftTitle a {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .sectionLeftTitle .title {
+    display: flex;
+    flex-direction: row;
+  }
+  .sectionLeftTitle .title h2 {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .sectionLeftTitle .title span {
+    font-size: 16px;
+    margin-right: 8px;
   }
   .cta {
     padding: 50px 0;
+  }
+  .latestBlogItem {
+    margin-left:0px;
+    display: flex;
+    flex-direction: column;
   }
   .latestBlogTitle {
     padding: 0px 0px;
@@ -254,12 +288,18 @@
     padding: 0px 0px;
     margin-bottom: 20px;
   }
-  .latestBlogItem img {
-    margin-right: 10px; /* Adjust spacing between image and text */
-    width: 44%;
-    border-radius: 8px;
+  .latestBlog{
+    margin-left: 0;
   }
-
+  .latestBlogItem img {
+    width: 100%;
+    height: 200px;
+  }
+  .latestBlogItem .latestBlogContent {
+    margin-left: 0;
+    padding: 20px 10px;
+    text-align: center;
+  }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
     font-size: 18px;
     margin-bottom: 0px;
@@ -286,15 +326,44 @@
   .paddingCard {
     margin: 0 6px;
   }
+  .sectionLeftTitle {
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  .sectionLeftTitle p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  .sectionLeftTitle a {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .sectionLeftTitle .title {
+    display: flex;
+    flex-direction: row;
+  }
+  .sectionLeftTitle .title h2 {
+    margin-top: 0px;
+    font-size: 26px;
+  }
+  .sectionLeftTitle .title span {
+    font-size: 22px;
+    margin-right: 10px;
+  }
   .cta {
     margin-top: -20%;
     padding: 0px 10px;
   }
-  .latestBlogItem img {
-    width: 44%;
+  .latestBlog {
+    margin-left:0px;
   }
+  .latestBlogItem img {
+    width: 200px;
+    height: 120px;
+    }
   .latestBlogTitle h2 {
-    padding: 0 20px;
+    padding: 30px 20px 10px 20px;
     font-size: 22px;
   }
   .latestBlogTitle p {
@@ -302,7 +371,29 @@
     font-size: 14px;
   }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
+    font-size: 18px;
+  }
+  .latestBlogItem .latestBlogContent .latestBlogAuthor {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .latestBlog {
+    margin-left:0px;
+  }
+  .latestBlogTitle h2 {
     font-size: 22px;
+  }
+  .latestBlogTitle p {
+    font-size: 20px;
+  }
+  .latestBlogItem img {
+    width: 250px;
+    height: 150px;
+    }
+  .latestBlogItem .latestBlogContent .latestBlogTitle {
+    font-size: 20px;
   }
   .latestBlogItem .latestBlogContent .latestBlogAuthor {
     font-size: 16px;

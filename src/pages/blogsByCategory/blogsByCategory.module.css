@@ -80,17 +80,13 @@
 .latestBlogItem {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .latestBlogItem img {
-  margin-right: 10px; /* Adjust spacing between image and text */
-  width: 44%;
-  border-radius: 8px;
-}
-.latestBlogItem img {
-  margin-right: 10px; /* Adjust spacing between image and text */
-  width: 30%;
+  margin-right: 0px; /* Adjust spacing between image and text */
+  width: 350px;
+  height: 200px;
   border-radius: 8px;
 }
 
@@ -98,6 +94,7 @@
   display: flex;
   flex-direction: column;
   text-align: justify;
+  margin-left: 20px;
 }
 .latestBlogItem .latestBlogContent .latestBlogTitle {
   color: #000;
@@ -115,10 +112,9 @@
   font-weight: 400;
 }
 
-.latestBlogTitle {
+/* .latestBlogTitle {
   margin-left: 20px;
-}
-
+} */
 .latestBlogTitle h2 {
   font-size: 42px;
   font-weight: 700;
@@ -141,6 +137,11 @@
   .cta {
     padding: 50px 0;
   }
+  .latestBlogItem {
+    margin-left:0px;
+    display: flex;
+    flex-direction: column;
+  }
   .latestBlogTitle {
     padding: 0px 0px;
   }
@@ -154,12 +155,18 @@
     padding: 0px 0px;
     margin-bottom: 20px;
   }
-  .latestBlogItem img {
-    margin-right: 10px; /* Adjust spacing between image and text */
-    width: 44%;
-    border-radius: 8px;
+  .latestBlog{
+    margin-left: 0;
   }
-
+  .latestBlogItem img {
+    width: 100%;
+    height: 200px;
+  }
+  .latestBlogItem .latestBlogContent {
+    margin-left: 0;
+    padding: 20px 0px;
+    text-align: center;
+  }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
     font-size: 18px;
     margin-bottom: 0px;
@@ -180,14 +187,15 @@
   .cta {
     padding: 50px 0px;
   }
-  .latestBlogTitle {
-    margin: 0;
+  .latestBlog {
+    margin-left:0px;
   }
   .latestBlogItem img {
-    width: 44%;
-  }
+    width: 200px;
+    height: 120px;
+    }
   .latestBlogTitle h2 {
-    padding: 0 20px;
+    padding: 30px 20px 10px 20px;
     font-size: 22px;
   }
   .latestBlogTitle p {
@@ -195,12 +203,9 @@
     font-size: 14px;
   }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
-    font-size: 22px;
+    font-size: 18px;
   }
   .latestBlogItem .latestBlogContent .latestBlogAuthor {
-    font-size: 16px;
-  }
-  .latestBlogItem .latestBlogContent .latestBlogDescription {
     font-size: 14px;
   }
 }
@@ -224,19 +229,21 @@
   .cta {
     padding: 50px 20px;
   }
-  .latestBlogItem img {
-    width: 44%;
+  .latestBlog {
+    margin-left:0px;
   }
   .latestBlogTitle h2 {
-    padding: 0 20px;
     font-size: 22px;
   }
   .latestBlogTitle p {
-    padding: 0 20px;
-    font-size: 14px;
+    font-size: 20px;
   }
+  .latestBlogItem img {
+    width: 250px;
+    height: 150px;
+    }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
-    font-size: 22px;
+    font-size: 20px;
   }
   .latestBlogItem .latestBlogContent .latestBlogAuthor {
     font-size: 16px;
