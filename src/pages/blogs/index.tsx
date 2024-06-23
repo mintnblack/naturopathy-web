@@ -302,22 +302,16 @@ const Blogs: React.FC = () => {
                                   {chunk.map((blog, blogIndex) => (
                                     <Card
                                       key={blogIndex}
-                                      style={{
-                                        width: "20rem",
-                                        marginRight: "30px",
-                                      }}
-                                      className={Design.paddingCard}
+                                      
+                                      className={Design.blogCard}
                                       onClick={() => toBlog(blog.id)}
                                     >
                                       <div className={Design.imageContainer}>
                                         <Card.Img
                                           variant="top"
                                           src={`${BASE_URL}/image/${blog.image_path}`}
-                                          style={{
-                                            padding: "12px 6px 0px 6px",
-                                            width: "300px",
-                                            height: "261px",
-                                          }}
+                                          
+                                          className={Design.blogCardImage}
                                         />
                                       </div>
                                       <div className={Design.cardBody}>
@@ -378,7 +372,7 @@ const Blogs: React.FC = () => {
                       <div className={Design.latestBlogContent}>
                         <p className={Design.latestBlogTitle}>{blog.title}</p>
                         <p className={Design.latestBlogAuthor}>{blog.author}</p>
-                        <p>
+                        <p className={Design.latestBlogDesc}>
                           {stripHtmlAndTruncate(blog.html, 600)} &nbsp;{" "}
                           <a onClick={() => toBlog(blog.id)}>Read More</a>
                         </p>

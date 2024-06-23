@@ -123,6 +123,7 @@
 .cardsRow {
   display: flex;
   justify-content: center;
+  margin: 0 20px;
 }
 
 .sectionLeftTitle {
@@ -158,7 +159,16 @@
 .card {
   border-radius: 12px;
 }
-
+.blogCard {
+  margin: 0 6px;
+  width: 20rem;
+  margin-right: 30px;
+}
+.blogCardImage {
+  padding: 12px 6px 0px 6px;
+  width: 300px;
+  height: 261px;
+}
 .imageContainer {
   display: flex;
   justify-content: center;
@@ -205,7 +215,8 @@
   padding-bottom: 20px; /* Add padding for spacing */
 }
 
-.latestBlogItem:last-child { /* Remove border for last item */
+.latestBlogItem:last-child {
+  /* Remove border for last item */
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -242,7 +253,9 @@
   font-weight: 500;
   margin-bottom: 5px; /* Add margin for spacing */
 }
-
+.latestBlogDesc {
+  text-align: justify;
+}
 /* .latestBlogTitle {
   margin-left: 20px;
 } */
@@ -292,18 +305,24 @@
     display: flex;
     justify-content: center;
     padding: 0 20px;
+    width: 20rem;
   }
   .blogSideSection {
     margin-top: -60px;
   }
   .thumbnailItem .thumbnailContent .thumbnailTitle {
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
   }
-  .paddingCard {
+  .blogCard {
     margin: 0 6px;
+  }
+  .blogCardImage {
+    padding: 12px 6px 0 6px;
+    width: 250px;
+    height: 230px;
   }
   .cardSliderSection {
     justify-content: center;
@@ -370,7 +389,6 @@
   }
   .latestBlogImageWrapper {
     flex: 0;
-
   }
   .latestBlogItem img {
     width: 100%;
@@ -389,6 +407,9 @@
     font-size: 14px;
     margin-bottom: 0px;
   }
+  .latestBlogItem .latestBlogContent .latestBlogDesc {
+    display: none;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -404,8 +425,10 @@
   .carousel .card {
     padding: 10px 0;
   }
-  .paddingCard {
+  .blogCard {
     margin: 0 6px;
+    width: 20rem;
+    margin-right: 30px;
   }
   .sectionLeftTitle {
     justify-content: center;
