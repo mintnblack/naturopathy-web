@@ -65,6 +65,15 @@ const BlogDetail: React.FC = () => {
       year: "numeric",
     });
   }
+  function stripHtmlAndTruncate(html: string, length: number) {
+    // Remove HTML tags using a regular expression
+    const plainText = html.replace(/<[^>]*>/g, "");
+
+    // Truncate the plain text to the specified length
+    return plainText.length > length
+      ? plainText.substring(0, length) + "..."
+      : plainText;
+  }
 
   return (
     <div className="background content-main">
@@ -83,7 +92,7 @@ const BlogDetail: React.FC = () => {
               </div>
               <img
                 src={`${BASE_URL}/image/${blog.image_path}`}
-                style={{ width: "100%" }}
+                style={{ width: "100%", height:"500px" }}
               />
               <div className={Design.blogContent}>
                 <div dangerouslySetInnerHTML={{ __html: blog.html }} />
@@ -101,29 +110,37 @@ const BlogDetail: React.FC = () => {
           <p>Read on the latest Blogs.</p>
         </div>
         <Row>
-          <Col xs={12} md={12}>
-            <div className={Design.latestBlog}>
-              {blogs.slice(0, 4).map((blog, index) => (
-                <div key={index} className={Design.latestBlogItem}>
-                  <div className={Design.latestBlogImageWrapper}>
-                    <img
-                      src={`${BASE_URL}/image/${blog.image_path}`}
-                      alt={blog.title}
-                      className={Design.latestBlogImage}
-                    />
-                  </div>
-                  <div className={Design.latestBlogContent}>
-                    <p className={Design.latestBlogTitle}>{blog.title}</p>
-                    <p className={Design.latestBlogAuthor}>{blog.author}</p>
-                    {/* <p className="latestBlogDescription">
+              <Col xs={12} md={12}>
+                <div className={Design.latestBlog}>
+                  {blogs.slice(0, 4).map((blog, index) => (
+                    <div
+                      key={index}
+                      className={Design.latestBlogItem}
+                      onClick={() => toBlog(blog.id)}
+                    >
+                      <div className={Design.latestBlogImageWrapper}>
+                        <img
+                          src={`${BASE_URL}/image/${blog.image_path}`}
+                          alt={blog.title}
+                          className={Design.latestBlogImage}
+                        />
+                      </div>
+                      <div className={Design.latestBlogContent}>
+                        <p className={Design.latestBlogTitle}>{blog.title}</p>
+                        <p className={Design.latestBlogAuthor}>{blog.author}</p>
+                        <p>
+                          {stripHtmlAndTruncate(blog.html, 600)} &nbsp;{" "}
+                          <a onClick={() => toBlog(blog.id)}>Read More</a>
+                        </p>
+                        {/* <p className="latestBlogDescription">
               {blog.description || "No description available."}
             </p> */}
-                  </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </Col>
-        </Row>
+              </Col>
+            </Row>
       </div>
       <SocialFooter />
     </div>

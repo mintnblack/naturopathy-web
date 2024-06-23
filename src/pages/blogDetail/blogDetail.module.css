@@ -13,13 +13,17 @@
 }
 
 .blogTitle h2 {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 700;
   text-align: left;
 }
+.blogTitle h5 {
+  font-size: 18px;
+
+}
 
 .blogTitle p {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
   text-align: left;
 }
@@ -60,6 +64,7 @@
 
 .latestBlogImage {
   width: 100%; /* Ensure image fills container */
+  height: 200px;
   border-radius: 8px; /* Add rounded corners */
 }
 

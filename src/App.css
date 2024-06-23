@@ -9,3 +9,7 @@ body {
 .bg-primary {
   background-color: #b6d54d !important;
 }
+
+.card-title{
+  font-size: 18px !important;
+}

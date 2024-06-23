@@ -99,6 +99,15 @@ const BlogsByCategory: React.FC = () => {
   const toBlog = (id: string) => {
     navigate(`/blogs/${id}`)
   }
+  function stripHtmlAndTruncate(html: string, length: number) {
+    // Remove HTML tags using a regular expression
+    const plainText = html.replace(/<[^>]*>/g, "");
+
+    // Truncate the plain text to the specified length
+    return plainText.length > length
+      ? plainText.substring(0, length) + "..."
+      : plainText;
+  }
 
   return (
     <div>
@@ -129,7 +138,7 @@ const BlogsByCategory: React.FC = () => {
                           style={{ padding: "14px" }}
                         />
                         <Card.Body>
-                        <Card.Title>
+                        <Card.Title className="card-title">
                               {blog.title.length > 55
                                 ? blog.title.slice(0, 55) + "..."
                                 : blog.title}
@@ -155,7 +164,11 @@ const BlogsByCategory: React.FC = () => {
               <Col xs={12} md={12}>
                 <div className={Design.latestBlog}>
                   {blogs.slice(0, 4).map((blog, index) => (
-                    <div key={index} className={Design.latestBlogItem}>
+                    <div
+                      key={index}
+                      className={Design.latestBlogItem}
+                      onClick={() => toBlog(blog.id)}
+                    >
                       <div className={Design.latestBlogImageWrapper}>
                         <img
                           src={`${BASE_URL}/image/${blog.image_path}`}
@@ -166,6 +179,13 @@ const BlogsByCategory: React.FC = () => {
                       <div className={Design.latestBlogContent}>
                         <p className={Design.latestBlogTitle}>{blog.title}</p>
                         <p className={Design.latestBlogAuthor}>{blog.author}</p>
+                        <p>
+                          {stripHtmlAndTruncate(blog.html, 600)} &nbsp;{" "}
+                          <a onClick={() => toBlog(blog.id)}>Read More</a>
+                        </p>
+                        {/* <p className="latestBlogDescription">
+              {blog.description || "No description available."}
+            </p> */}
                       </div>
                     </div>
                   ))}

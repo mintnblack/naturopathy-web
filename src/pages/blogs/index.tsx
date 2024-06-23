@@ -152,7 +152,7 @@ const Blogs: React.FC = () => {
     }, []);
   };
 
-  function stripHtmlAndTruncate(html: string, length = 50) {
+  function stripHtmlAndTruncate(html: string, length: number) {
     // Remove HTML tags using a regular expression
     const plainText = html.replace(/<[^>]*>/g, "");
 
@@ -267,7 +267,7 @@ const Blogs: React.FC = () => {
                               href={`/blogs/category/${category.id}`}
                               style={{
                                 color: "#67782d",
-                                fontSize : "20px"
+                                fontSize: "20px",
                               }}
                             >
                               View all
@@ -286,10 +286,14 @@ const Blogs: React.FC = () => {
                           controls={true}
                           indicators={false}
                           className="carousel"
-                          nextIcon={
-                            <img src={arrowRight}  />
-                          }
-                          prevIcon={<img src={arrowLeft} />}
+                          nextIcon={<img src={arrowRight} />}
+                          prevIcon={
+                            <div
+                              className={`custom-carousel-arrow ${Design.carouselBg}`}
+                            >
+                              <img src={arrowLeft} alt="Previous" />
+                            </div>
+                          } // Apply the custom CSS class
                         >
                           {createChunks(category.blogs).map(
                             (chunk: any[], index: Key | null | undefined) => (
@@ -324,7 +328,10 @@ const Blogs: React.FC = () => {
                                               : blog.title}
                                           </Card.Title>
                                           <Card.Text>
-                                            {stripHtmlAndTruncate(blog.html)}
+                                            {stripHtmlAndTruncate(
+                                              blog.html,
+                                              50
+                                            )}
                                           </Card.Text>
                                         </Card.Body>
                                       </div>
@@ -356,7 +363,11 @@ const Blogs: React.FC = () => {
               <Col xs={12} md={12}>
                 <div className={Design.latestBlog}>
                   {blogs.slice(0, 4).map((blog, index) => (
-                    <div key={index} className={Design.latestBlogItem}>
+                    <div
+                      key={index}
+                      className={Design.latestBlogItem}
+                      onClick={() => toBlog(blog.id)}
+                    >
                       <div className={Design.latestBlogImageWrapper}>
                         <img
                           src={`${BASE_URL}/image/${blog.image_path}`}
@@ -367,6 +378,10 @@ const Blogs: React.FC = () => {
                       <div className={Design.latestBlogContent}>
                         <p className={Design.latestBlogTitle}>{blog.title}</p>
                         <p className={Design.latestBlogAuthor}>{blog.author}</p>
+                        <p>
+                          {stripHtmlAndTruncate(blog.html, 600)} &nbsp;{" "}
+                          <a onClick={() => toBlog(blog.id)}>Read More</a>
+                        </p>
                         {/* <p className="latestBlogDescription">
               {blog.description || "No description available."}
             </p> */}

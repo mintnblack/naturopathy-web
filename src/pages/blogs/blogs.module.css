@@ -59,7 +59,7 @@
 .thumbnailItem {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   width: 100%; /* Ensure the item takes full width */
 }
 
@@ -67,6 +67,7 @@
   margin-right: 10px; /* Adjust spacing between image and text */
   width: 44%;
   border-radius: 8px;
+  height: 95px;
 }
 
 .thumbnailItem .thumbnailContent {
@@ -79,17 +80,16 @@
 
 .thumbnailItem .thumbnailContent .thumbnailTitle {
   color: #000;
-  font-size: 18px;
-  font-weight: 700;
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: wrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 100%;
 }
 
 .thumbnailItem .thumbnailContent .thumbnailAuthor {
   color: #575555;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -169,19 +169,6 @@
   margin: 40px 0;
 }
 
-/* 
-.carousel-control-prev-icon::before,
-.carousel-control-next-icon::before {
-  content: '';
-  font-size: 48px;
-  color: #7fc600 !important;
-  cursor: pointer;
-  margin: 0 10px;
-  font-weight: 600;z-index: 999;
-} */
-/* .carousel-control-prev{
-  left: -80px;
-} */
 .cta {
   padding: 100px 0;
 }
@@ -230,6 +217,7 @@
 
 .latestBlogImage {
   width: 100%; /* Ensure image fills container */
+  height: 200px;
   border-radius: 8px; /* Add rounded corners */
 }
 
