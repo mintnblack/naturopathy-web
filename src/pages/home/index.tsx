@@ -61,7 +61,9 @@ const Home: React.FC = () => {
     axios
       .get(`${BASE_URL}/blog/`)
       .then((res) => {
-        setBlogs(res.data.data);
+        const blogs = res.data.data;
+        const len=blogs.length;
+        setBlogs(blogs.slice(0,len-(len%3)));
       })
       .catch((err) => {
         console.log(err.message);
@@ -223,7 +225,7 @@ const Home: React.FC = () => {
             controls={true}
             indicators={false}
             nextIcon={
-              <img src={arrowRight} className={Design.carouselControlBg} />
+              <img src={arrowRight}  />
             }
             prevIcon={<img src={arrowLeft} />}
           >
@@ -280,7 +282,7 @@ const Home: React.FC = () => {
                           key={index}
                           className={Design.paddingCard}
                           onClick={() => toBlog(item.id)}
-                          style={{ height: "380px" }}
+                          style={{width: "20rem", height: "380px" }}
                         >
                           <div className={Design.imageContainer}>
                             <Card.Img
@@ -304,9 +306,10 @@ const Home: React.FC = () => {
                 ))}
               </Carousel>
             </Col>
+            
           </div>
-
-          <div className={Design.aboutSection} id="about">
+          <div id="about"></div>
+          <div className={Design.aboutSection}>
             <Col
               md={{ order: 1, span: 6 }}
               xs={{ order: 2, span: 12 }}
@@ -357,13 +360,13 @@ const Home: React.FC = () => {
                 </div>
               </div> */}
               <div className={Design.callbackTitle}>
-              <div className={Design.sectionHeading}>
-                <span>Callback &nbsp;</span>
-                <h2>Form</h2>
-              </div>
-              <div className={Design.sectionHeading}>
-                <p>Feel Free to contact us with any Queries!</p>
-              </div>
+                <div className={Design.sectionHeading}>
+                  <span>Callback &nbsp;</span>
+                  <h2>Form</h2>
+                </div>
+                <div className={Design.sectionHeading}>
+                  <p>Feel Free to contact us with any Queries!</p>
+                </div>
               </div>
               <Form onSubmit={onSubmitForm}>
                 <Row>

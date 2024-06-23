@@ -35,7 +35,7 @@ const Navbar = () => {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
         window.scrollTo({
-          top: aboutSection.offsetTop,
+          top: aboutSection.offsetTop - 100,
           behavior: "smooth",
         });
       }
@@ -46,19 +46,19 @@ const Navbar = () => {
     if (location.pathname !== "/") {
       navigate("/");
       setTimeout(() => {
-        const aboutSection = document.getElementById("contact");
-        if (aboutSection) {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
           window.scrollTo({
-            top: aboutSection.offsetTop,
+            top: contactSection.offsetTop ,
             behavior: "smooth",
           });
         }
       }, 100);
     } else {
-      const aboutSection = document.getElementById("contact");
-      if (aboutSection) {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
         window.scrollTo({
-          top: aboutSection.offsetTop,
+          top: contactSection.offsetTop + 70,
           behavior: "smooth",
         });
       }

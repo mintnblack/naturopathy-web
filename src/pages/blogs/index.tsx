@@ -10,7 +10,8 @@ import axios from "axios";
 import { BASE_URL } from "../../constants/applicationConstants";
 import LoadingScreen from "../../components/loader/LoadingScreen";
 import { useNavigate } from "react-router-dom";
-
+import arrowRight from "../../assets/images/icons/arrow-right.png";
+import arrowLeft from "../../assets/images/icons/arrow-left.png";
 interface Item {
   title: string;
   author: string;
@@ -135,7 +136,7 @@ const Blogs: React.FC = () => {
   const getChunkSize = () => {
     if (screenWidth < 481) return 1;
     else if (screenWidth < 768) return 1;
-    else return 4;
+    else return 3;
   };
 
   // Function to create chunks based on the current screen width
@@ -265,8 +266,8 @@ const Blogs: React.FC = () => {
                             <a
                               href={`/blogs/category/${category.id}`}
                               style={{
-                                textDecoration: "none",
                                 color: "#67782d",
+                                fontSize : "20px"
                               }}
                             >
                               View all
@@ -285,6 +286,10 @@ const Blogs: React.FC = () => {
                           controls={true}
                           indicators={false}
                           className="carousel"
+                          nextIcon={
+                            <img src={arrowRight}  />
+                          }
+                          prevIcon={<img src={arrowLeft} />}
                         >
                           {createChunks(category.blogs).map(
                             (chunk: any[], index: Key | null | undefined) => (
@@ -294,7 +299,7 @@ const Blogs: React.FC = () => {
                                     <Card
                                       key={blogIndex}
                                       style={{
-                                        width: "16rem",
+                                        width: "20rem",
                                         marginRight: "30px",
                                       }}
                                       className={Design.paddingCard}
@@ -306,7 +311,7 @@ const Blogs: React.FC = () => {
                                           src={`${BASE_URL}/image/${blog.image_path}`}
                                           style={{
                                             padding: "12px 6px 0px 6px",
-                                            width: "238px",
+                                            width: "300px",
                                             height: "261px",
                                           }}
                                         />

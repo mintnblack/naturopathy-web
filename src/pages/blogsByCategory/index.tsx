@@ -120,7 +120,7 @@ const BlogsByCategory: React.FC = () => {
                     <div className={Design.cardsRow}>
                       <Card 
                         ref={(el: HTMLDivElement | null) => cardRefs.current[index] = el} 
-                        style={{ width: "18rem", minHeight: `${maxCardHeight}px` }} 
+                        style={{ width: "20rem", minHeight: `${maxCardHeight}px` }} 
                         onClick={() => toBlog(blog.id)}
                       >
                         <Card.Img
@@ -129,7 +129,11 @@ const BlogsByCategory: React.FC = () => {
                           style={{ padding: "14px" }}
                         />
                         <Card.Body>
-                          <Card.Title>{blog.title}</Card.Title>
+                        <Card.Title>
+                              {blog.title.length > 55
+                                ? blog.title.slice(0, 55) + "..."
+                                : blog.title}
+                            </Card.Title>
                           <Card.Text>{blog.author}</Card.Text>
                         </Card.Body>
                       </Card>

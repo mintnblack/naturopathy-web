@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-slick": "^0.23.13",
     "@types/react-table": "^7.7.20"
   }
 }
