@@ -73,77 +73,94 @@
 }
 
 .latestBlog {
-  align-items: flex-start;
-  margin-left: 20px;
+  margin-top: 40px; /* Adjust margin as needed */
 }
 
 .latestBlogItem {
   display: flex;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 60px; /* Adjust margin as needed */
+  border-bottom: 1px solid #ddd; /* Add subtle border for separation */
+  padding-bottom: 20px; /* Add padding for spacing */
 }
 
-.latestBlogItem img {
-  margin-right: 0px; /* Adjust spacing between image and text */
-  width: 350px;
-  height: 200px;
-  border-radius: 8px;
+.latestBlogItem:last-child {
+  /* Remove border for last item */
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.latestBlogItem .latestBlogContent {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  margin-left: 20px;
+.latestBlogImageWrapper {
+  flex: 0 0 350px; /* Set fixed width for image container */
+  margin-right: 20px; /* Add margin between image and content */
 }
-.latestBlogItem .latestBlogContent .latestBlogTitle {
+
+.latestBlogImage {
+  width: 100%; /* Ensure image fills container */
+  border-radius: 8px; /* Add rounded corners */
+}
+
+.latestBlogContent {
+  flex: 1; /* Allow content to fill remaining space */
+}
+
+.latestBlogTitle {
   color: #000;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 700;
+  margin-bottom: 10px; /* Add margin for spacing */
+  text-overflow: ellipsis; /* Truncate overflowing text */
+  white-space: nowrap; /* Prevent line breaks within title */
+  overflow: hidden; /* Hide overflowing content */
+  max-width: 800px; /* Adjust maximum width as needed */
 }
-.latestBlogItem .latestBlogContent .latestBlogAuthor {
+
+.latestBlogAuthor {
   color: #4d590e;
-  font-size: 20px;
-  font-weight: 700;
-}
-.latestBlogItem .latestBlogContent .latestBlogDescription {
-  color: #67782d;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  margin-bottom: 5px; /* Add margin for spacing */
 }
 
 /* .latestBlogTitle {
   margin-left: 20px;
 } */
 .latestBlogTitle h2 {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 700;
   text-align: left;
 }
 
 .latestBlogTitle p {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
   text-align: left;
 }
-
+.cardsRow {
+  display: flex;
+}
 @media (max-width: 480px) {
-  .sectionHeading {
-    font-size: 26px;
+  .sectionHeading h2 {
+    font-size: 20px;
   }
+  .sectionHeading h2 span {
+    font-size: 20px;
+  }
+
   .sectionHeading p {
-    font-size: 18px;
+    font-size: 16px;
   }
   .cta {
     padding: 50px 0;
   }
   .latestBlogItem {
-    margin-left:0px;
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
   }
   .latestBlogTitle {
     padding: 0px 0px;
+    max-width: 300px;
   }
   .latestBlogTitle h2 {
     font-size: 26px;
@@ -155,8 +172,11 @@
     padding: 0px 0px;
     margin-bottom: 20px;
   }
-  .latestBlog{
+  .latestBlog {
     margin-left: 0;
+  }
+  .latestBlogImageWrapper {
+    flex: 0;
   }
   .latestBlogItem img {
     width: 100%;
@@ -164,7 +184,7 @@
   }
   .latestBlogItem .latestBlogContent {
     margin-left: 0;
-    padding: 20px 0px;
+    padding: 20px 10px;
     text-align: center;
   }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
@@ -188,12 +208,12 @@
     padding: 50px 0px;
   }
   .latestBlog {
-    margin-left:0px;
+    margin-left: 0px;
   }
   .latestBlogItem img {
     width: 200px;
     height: 120px;
-    }
+  }
   .latestBlogTitle h2 {
     padding: 30px 20px 10px 20px;
     font-size: 22px;
@@ -230,7 +250,7 @@
     padding: 50px 20px;
   }
   .latestBlog {
-    margin-left:0px;
+    margin-left: 0px;
   }
   .latestBlogTitle h2 {
     font-size: 22px;
@@ -241,7 +261,7 @@
   .latestBlogItem img {
     width: 250px;
     height: 150px;
-    }
+  }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
     font-size: 20px;
   }

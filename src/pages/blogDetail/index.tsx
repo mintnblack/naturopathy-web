@@ -102,24 +102,22 @@ const BlogDetail: React.FC = () => {
         </div>
         <Row>
           <Col xs={12} md={12}>
-            <div className={`${Design.blogSideSection} ${Design.latestBlog}`}>
+            <div className={Design.latestBlog}>
               {blogs.slice(0, 4).map((blog, index) => (
-                <div
-                  key={index}
-                  className={Design.latestBlogItem}
-                  onClick={() => toBlog(blog.id)}
-                >
-                  <img
-                    src={`${BASE_URL}/image/${blog.image_path}`}
-                    alt={blog.title}
-                    style={{ width: "350px", height: "200px" }}
-                  />
+                <div key={index} className={Design.latestBlogItem}>
+                  <div className={Design.latestBlogImageWrapper}>
+                    <img
+                      src={`${BASE_URL}/image/${blog.image_path}`}
+                      alt={blog.title}
+                      className={Design.latestBlogImage}
+                    />
+                  </div>
                   <div className={Design.latestBlogContent}>
                     <p className={Design.latestBlogTitle}>{blog.title}</p>
                     <p className={Design.latestBlogAuthor}>{blog.author}</p>
                     {/* <p className="latestBlogDescription">
-                        {blog.description || "No description available."}
-                      </p> */}
+              {blog.description || "No description available."}
+            </p> */}
                   </div>
                 </div>
               ))}

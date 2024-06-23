@@ -87,14 +87,6 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/blogs"
-            className={location.pathname === "/blogs" ? "active" : ""}
-          >
-            Blogs
-          </Link>
-        </li>
-        <li>
           <button
             onClick={handleAboutClick}
             className={
@@ -118,14 +110,60 @@ const Navbar = () => {
             Contact Us
           </button>
         </li>
-        <li className="menuItem">
+        {isAuthenticated ? (
+          <>
+          <li>
+              <Link
+                to="/user/dashboard"
+                className={location.pathname === "/user/dashboard" ? "active" : ""}
+              >
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/user/settings"
+                className={location.pathname === "/user/settings" ? "active" : ""}
+              >
+                Settings
+              </Link>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
+        <li>
           <Link
-            to="/"
+            to="/blogs"
+            className={location.pathname === "/blogs" ? "active" : ""}
+          >
+            Blogs
+          </Link>
+        </li>
+
+        {isAuthenticated ? (
+          <>
+            <li className="menuItem">
+          <Link
+            to="/login"
+            className={location.pathname === "login" ? "active" : ""}
+            onClick={() => logoutUser()}
+          >
+            Logout
+          </Link>
+        </li>
+          </>
+        ) : (
+          <>
+         <li className="menuItem">
+          <Link
+            to="/login"
             className={location.pathname === "login" ? "active" : ""}
           >
             Login
           </Link>
-        </li>
+        </li></>
+        )}
       </ul>
 
       <div className="login-register">

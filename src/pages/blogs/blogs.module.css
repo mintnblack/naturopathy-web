@@ -12,15 +12,47 @@
 .cardOverlay {
   position: absolute;
   bottom: 0;
-  left: 50px;
-  right: 0;
+  margin-left: 30px;
   color: #fff;
+  width: 80%;
+}
+
+.mainFeature {
+  font-size: 28px;
+}
+.cardImgContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.cardImgContainer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Adjust as needed */
+}
+
+.cardImgContainer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%; /* Adjust as needed */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0)
+  ); /* Adjusted gradient */
+  border-radius: 8px; /* Adjust as needed */
+  pointer-events: none;
 }
 
 .blogSideSection {
   display: flex;
   flex-direction: column;
-  padding: 15px 0;
+  margin-top: 20px;
   align-items: center; /* Vertically center items */
 }
 
@@ -28,13 +60,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%; /* Ensure the item takes full width */
 }
 
-.thumbnailItem img {
-  margin-right: 10px; /* Adjust spacing between image and text */
-  width: 44%;
-  border-radius: 8px;
-}
 .thumbnailItem img {
   margin-right: 10px; /* Adjust spacing between image and text */
   width: 44%;
@@ -44,25 +72,45 @@
 .thumbnailItem .thumbnailContent {
   display: flex;
   flex-direction: column;
-  line-height: 4px;
+  line-height: 1.4; /* Adjust line-height for readability */
+  flex: 1; /* Ensure content takes remaining space */
+  min-width: 0; /* Allow flex items to shrink properly */
 }
+
 .thumbnailItem .thumbnailContent .thumbnailTitle {
   color: #000;
   font-size: 18px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
+
 .thumbnailItem .thumbnailContent .thumbnailAuthor {
   color: #575555;
   font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
+
 .thumbnailItem .thumbnailContent .thumbnailDescription {
   color: #696767;
   font-size: 12px;
   font-weight: 400;
   line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
+.categoryBlogs {
+  margin-top: 40px;
+}
 .cardSliderSection {
   display: flex;
   width: 100%;
@@ -70,6 +118,11 @@
   align-items: center; /* Add this line */
   position: relative;
   padding: 0;
+}
+
+.cardsRow {
+  display: flex;
+  justify-content: left;
 }
 
 .sectionLeftTitle {
@@ -152,56 +205,65 @@
 }
 
 .latestBlog {
-  align-items: flex-start;
-  margin-left: 20px;
+  margin-top: 40px; /* Adjust margin as needed */
 }
 
 .latestBlogItem {
   display: flex;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 60px; /* Adjust margin as needed */
+  border-bottom: 1px solid #ddd; /* Add subtle border for separation */
+  padding-bottom: 20px; /* Add padding for spacing */
 }
 
-.latestBlogItem img {
-  margin-right: 0px; /* Adjust spacing between image and text */
-  width: 350px;
-  height: 200px;
-  border-radius: 8px;
+.latestBlogItem:last-child { /* Remove border for last item */
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.latestBlogItem .latestBlogContent {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  margin-left: 20px;
+.latestBlogImageWrapper {
+  flex: 0 0 350px; /* Set fixed width for image container */
+  margin-right: 20px; /* Add margin between image and content */
 }
-.latestBlogItem .latestBlogContent .latestBlogTitle {
+
+.latestBlogImage {
+  width: 100%; /* Ensure image fills container */
+  border-radius: 8px; /* Add rounded corners */
+}
+
+.latestBlogContent {
+  flex: 1; /* Allow content to fill remaining space */
+}
+
+.latestBlogTitle {
   color: #000;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 700;
+  margin-bottom: 10px; /* Add margin for spacing */
+  text-overflow: ellipsis; /* Truncate overflowing text */
+  white-space: nowrap; /* Prevent line breaks within title */
+  overflow: hidden; /* Hide overflowing content */
+  max-width: 800px; /* Adjust maximum width as needed */
 }
-.latestBlogItem .latestBlogContent .latestBlogAuthor {
+
+.latestBlogAuthor {
   color: #4d590e;
-  font-size: 20px;
-  font-weight: 700;
-}
-.latestBlogItem .latestBlogContent .latestBlogDescription {
-  color: #67782d;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
+  margin-bottom: 5px; /* Add margin for spacing */
 }
 
 /* .latestBlogTitle {
   margin-left: 20px;
 } */
 .latestBlogTitle h2 {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 700;
   text-align: left;
 }
 
 .latestBlogTitle p {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 400;
   text-align: left;
 }
@@ -222,11 +284,33 @@
   .blogMainSection {
     padding: 15px 16px;
   }
+  .mainFeature {
+    font-size: 18px;
+  }
+  .cardImgContainer::after {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.6) 80%,
+      rgba(0, 0, 0, 0)
+    ); /* Adjusted gradient */
+  }
   .customCard {
     padding: 15px 0px;
   }
+  .cardsRow {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+  }
   .blogSideSection {
-    padding: 15px 0px;
+    margin-top: -60px;
+  }
+  .thumbnailItem .thumbnailContent .thumbnailTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
   .paddingCard {
     margin: 0 6px;
@@ -234,7 +318,9 @@
   .cardSliderSection {
     justify-content: center;
   }
-
+  .cardOverlay {
+    margin-left: 20px;
+  }
   .sectionHeading {
     justify-content: center;
     align-items: center;
@@ -271,12 +357,13 @@
     padding: 50px 0;
   }
   .latestBlogItem {
-    margin-left:0px;
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
   }
   .latestBlogTitle {
     padding: 0px 0px;
+    max-width: 300px;
   }
   .latestBlogTitle h2 {
     font-size: 26px;
@@ -288,8 +375,12 @@
     padding: 0px 0px;
     margin-bottom: 20px;
   }
-  .latestBlog{
+  .latestBlog {
     margin-left: 0;
+  }
+  .latestBlogImageWrapper {
+    flex: 0;
+
   }
   .latestBlogItem img {
     width: 100%;
@@ -356,12 +447,12 @@
     padding: 0px 10px;
   }
   .latestBlog {
-    margin-left:0px;
+    margin-left: 0px;
   }
   .latestBlogItem img {
     width: 200px;
     height: 120px;
-    }
+  }
   .latestBlogTitle h2 {
     padding: 30px 20px 10px 20px;
     font-size: 22px;
@@ -380,7 +471,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .latestBlog {
-    margin-left:0px;
+    margin-left: 0px;
   }
   .latestBlogTitle h2 {
     font-size: 22px;
@@ -391,7 +482,7 @@
   .latestBlogItem img {
     width: 250px;
     height: 150px;
-    }
+  }
   .latestBlogItem .latestBlogContent .latestBlogTitle {
     font-size: 20px;
   }

@@ -21,8 +21,8 @@ interface Item {
 interface FeaturedBlogs {
   id: string;
   title: string;
-  image_path: string;  
-  author: string; 
+  image_path: string;
+  author: string;
   created: string;
 }
 
@@ -52,7 +52,8 @@ interface Category {
 const Blogs: React.FC = () => {
   const navigate = useNavigate();
   const [featuredBlogs, setFeaturedBlogs] = useState<FeaturedBlogs[]>([]);
-  const [latestFeatureBlog, setlatestFeatureBlog] = useState<FeaturedBlogs | null>(null);
+  const [latestFeatureBlog, setlatestFeatureBlog] =
+    useState<FeaturedBlogs | null>(null);
   const [categoryBlogs, setcategoryBlogs] = useState<Blog[]>([]);
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loadingScreen, setLoadingScreen] = useState(false);
@@ -177,12 +178,17 @@ const Blogs: React.FC = () => {
                           className={`${Design.customCard} ${Design.blogMainSection}`}
                           onClick={() => toBlog(latestFeatureBlog.id)}
                         >
-                          <Card.Img
-                            src={`${BASE_URL}/image/${latestFeatureBlog.image_path}`}
-                            alt="Card image"
-                          />
+                          <div className={Design.cardImgContainer}>
+                            <Card.Img
+                              src={`${BASE_URL}/image/${latestFeatureBlog.image_path}`}
+                              alt="Card image"
+                            />
+                          </div>
+
                           <div className={Design.cardOverlay}>
-                            <Card.Title>{latestFeatureBlog.title}</Card.Title>
+                            <Card.Title className={Design.mainFeature}>
+                              {latestFeatureBlog.title}
+                            </Card.Title>
                             <p style={{ marginBottom: "40px" }}>
                               <span>{latestFeatureBlog.author}</span>
                               <span
@@ -220,9 +226,7 @@ const Blogs: React.FC = () => {
                           />
                           <div className={Design.thumbnailContent}>
                             <p className={Design.thumbnailTitle}>
-                              {blog.title.length > 10
-                                ? `${blog.title.slice(0, 10)}...`
-                                : blog.title}
+                              {blog.title}
                             </p>
                             <p className={Design.thumbnailAuthor}>
                               {blog.author}
@@ -238,9 +242,9 @@ const Blogs: React.FC = () => {
               <></>
             )}
 
-            <div className={Design.sectionHeading}>
+            {/* <div className={Design.sectionHeading}>
               <h2>Browse blogs by Category</h2>
-            </div>
+            </div> */}
 
             {categoryBlogs.map((category) => (
               <div key={category.id}>
@@ -251,20 +255,31 @@ const Blogs: React.FC = () => {
                         <div>
                           <div className={Design.sectionLeftTitle}>
                             <div className={Design.title}>
-                            <span>More On</span>
-                            <h2>{category.name}</h2>
+                              <span>More On</span>
+                              <h2>{category.name}</h2>
                             </div>
                             <p>
                               Find featured blogs on{" "}
                               {category.name.toLowerCase()}.
                             </p>
-                            <a href={`/blogs/category/${category.id}`} style={{textDecoration: "none",color:"#67782d"}}>
+                            <a
+                              href={`/blogs/category/${category.id}`}
+                              style={{
+                                textDecoration: "none",
+                                color: "#67782d",
+                              }}
+                            >
                               View all
                             </a>
                           </div>
                         </div>
                       </Col>
-                      <Col xs={12} sm={12} md={10}>
+                      <Col
+                        xs={12}
+                        sm={12}
+                        md={10}
+                        className={Design.categoryBlogs}
+                      >
                         <Carousel
                           interval={null}
                           controls={true}
@@ -274,12 +289,15 @@ const Blogs: React.FC = () => {
                           {createChunks(category.blogs).map(
                             (chunk: any[], index: Key | null | undefined) => (
                               <Carousel.Item key={index}>
-                                <div className="d-flex justify-content-around">
+                                <div className={Design.cardsRow}>
                                   {chunk.map((blog, blogIndex) => (
                                     <Card
                                       key={blogIndex}
-                                      style={{ width: "16rem" }}
-                                      className="paddingCard"
+                                      style={{
+                                        width: "16rem",
+                                        marginRight: "30px",
+                                      }}
+                                      className={Design.paddingCard}
                                       onClick={() => toBlog(blog.id)}
                                     >
                                       <div className={Design.imageContainer}>
@@ -287,18 +305,24 @@ const Blogs: React.FC = () => {
                                           variant="top"
                                           src={`${BASE_URL}/image/${blog.image_path}`}
                                           style={{
-                                            padding: "12px 6px 0 6px",
+                                            padding: "12px 6px 0px 6px",
                                             width: "238px",
                                             height: "261px",
                                           }}
                                         />
                                       </div>
-                                      <Card.Body>
-                                        <Card.Title>{blog.title}</Card.Title>
-                                        <Card.Text>
-                                          {stripHtmlAndTruncate(blog.html)}
-                                        </Card.Text>
-                                      </Card.Body>
+                                      <div className={Design.cardBody}>
+                                        <Card.Body>
+                                          <Card.Title>
+                                            {blog.title.length > 55
+                                              ? blog.title.slice(0, 100) + "..."
+                                              : blog.title}
+                                          </Card.Title>
+                                          <Card.Text>
+                                            {stripHtmlAndTruncate(blog.html)}
+                                          </Card.Text>
+                                        </Card.Body>
+                                      </div>
                                     </Card>
                                   ))}
                                 </div>
@@ -325,26 +349,22 @@ const Blogs: React.FC = () => {
             </div>
             <Row>
               <Col xs={12} md={12}>
-                <div
-                  className={` ${Design.latestBlog}`}
-                >
+                <div className={Design.latestBlog}>
                   {blogs.slice(0, 4).map((blog, index) => (
-                    <div
-                      key={index}
-                      className={Design.latestBlogItem}
-                      onClick={() => toBlog(blog.id)}
-                    >
-                      <img
-                        src={`${BASE_URL}/image/${blog.image_path}`}
-                        alt={blog.title}
-                        // style={{ width: "350px", height: "200px" }}
-                      />
+                    <div key={index} className={Design.latestBlogItem}>
+                      <div className={Design.latestBlogImageWrapper}>
+                        <img
+                          src={`${BASE_URL}/image/${blog.image_path}`}
+                          alt={blog.title}
+                          className={Design.latestBlogImage}
+                        />
+                      </div>
                       <div className={Design.latestBlogContent}>
                         <p className={Design.latestBlogTitle}>{blog.title}</p>
                         <p className={Design.latestBlogAuthor}>{blog.author}</p>
                         {/* <p className="latestBlogDescription">
-                        {blog.description || "No description available."}
-                      </p> */}
+              {blog.description || "No description available."}
+            </p> */}
                       </div>
                     </div>
                   ))}
