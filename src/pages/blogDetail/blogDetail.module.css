@@ -13,12 +13,13 @@
 }
 
 .blogTitle h2 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   text-align: left;
 }
 .blogTitle h5 {
-  font-size: 18px;
+  margin-top: 30px;
+  font-size: 16px;
 
 }
 

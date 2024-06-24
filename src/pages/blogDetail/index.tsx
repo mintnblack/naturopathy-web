@@ -84,7 +84,7 @@ const BlogDetail: React.FC = () => {
               <div className={Design.blogTitle}>
                 <h2>{blog.title}</h2>
                 {/* <p>Subtitle</p> */}
-                <h5 style={{ marginTop: "30px" }}>
+                <h5>
                   {blog.author}
                   <span style={{ margin: "0 20px" }}>|</span>
                   {formatDate(blog.created)}
