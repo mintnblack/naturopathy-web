@@ -110,7 +110,8 @@ const Navbar = () => {
             Contact Us
           </button>
         </li>
-        {isAuthenticated ? (
+       <div className="mobMenuItem">
+       {isAuthenticated ? (
           <>
           <li>
               <Link
@@ -132,6 +133,7 @@ const Navbar = () => {
         ) : (
           <></>
         )}
+       </div>
         <li>
           <Link
             to="/blogs"

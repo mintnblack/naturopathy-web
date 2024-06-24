@@ -109,7 +109,7 @@
 .latestBlogTitle {
   color: #000;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 10px; /* Add margin for spacing */
   text-overflow: ellipsis; /* Truncate overflowing text */
   white-space: nowrap; /* Prevent line breaks within title */

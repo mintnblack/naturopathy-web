@@ -267,7 +267,7 @@ const Blogs: React.FC = () => {
                               href={`/blogs/category/${category.id}`}
                               style={{
                                 color: "#67782d",
-                                fontSize: "20px",
+                                fontSize: "16px",
                               }}
                             >
                               View all
@@ -302,7 +302,6 @@ const Blogs: React.FC = () => {
                                   {chunk.map((blog, blogIndex) => (
                                     <Card
                                       key={blogIndex}
-                                      
                                       className={Design.blogCard}
                                       onClick={() => toBlog(blog.id)}
                                     >
@@ -310,17 +309,17 @@ const Blogs: React.FC = () => {
                                         <Card.Img
                                           variant="top"
                                           src={`${BASE_URL}/image/${blog.image_path}`}
-                                          
                                           className={Design.blogCardImage}
                                         />
                                       </div>
                                       <div className={Design.cardBody}>
                                         <Card.Body>
-                                          <Card.Title>
+                                          <Card.Title className="card-title-custom">
                                             {blog.title.length > 55
                                               ? blog.title.slice(0, 100) + "..."
                                               : blog.title}
                                           </Card.Title>
+                                          <p>{blog.author}</p>
                                           <Card.Text>
                                             {stripHtmlAndTruncate(
                                               blog.html,

@@ -23,3 +23,6 @@ code {
   margin-right: auto;
 }
 
+.card-title-custom{
+  font-size: 18px !important;
+}

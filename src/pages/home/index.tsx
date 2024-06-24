@@ -34,6 +34,7 @@ interface Item {
   date: string;
   description: string;
   id: string;
+  html: string;
 }
 
 interface CardSliderProps {
@@ -62,8 +63,8 @@ const Home: React.FC = () => {
       .get(`${BASE_URL}/blog/`)
       .then((res) => {
         const blogs = res.data.data;
-        const len=blogs.length;
-        setBlogs(blogs.slice(0,len-(len%3)));
+        const len = blogs.length;
+        setBlogs(blogs.slice(0, len - (len % 3)));
       })
       .catch((err) => {
         console.log(err.message);
@@ -213,6 +214,16 @@ const Home: React.FC = () => {
     navigate(`/blogs/${id}`);
   };
 
+  function stripHtmlAndTruncate(html: string, length: number) {
+    // Remove HTML tags using a regular expression
+    const plainText = html.replace(/<[^>]*>/g, "");
+
+    // Truncate the plain text to the specified length
+    return plainText.length > length
+      ? plainText.substring(0, length) + "..."
+      : plainText;
+  }
+
   return (
     <div>
       {loadingScreen ? (
@@ -224,9 +235,7 @@ const Home: React.FC = () => {
             fade
             controls={true}
             indicators={false}
-            nextIcon={
-              <img src={arrowRight}  />
-            }
+            nextIcon={<img src={arrowRight} />}
             prevIcon={<img src={arrowLeft} />}
           >
             <Carousel.Item>
@@ -282,7 +291,7 @@ const Home: React.FC = () => {
                           key={index}
                           className={Design.paddingCard}
                           onClick={() => toBlog(item.id)}
-                          style={{width: "20rem", height: "380px" }}
+                          style={{ width: "20rem"}}
                         >
                           <div className={Design.imageContainer}>
                             <Card.Img
@@ -292,11 +301,15 @@ const Home: React.FC = () => {
                             />
                           </div>
                           <Card.Body>
-                            <Card.Title>
+                            <Card.Title className="card-title-custom">
                               {item.title.length > 55
                                 ? item.title.slice(0, 55) + "..."
                                 : item.title}
                             </Card.Title>
+                            <p>{item.author}</p>
+                            <Card.Text>
+                              {stripHtmlAndTruncate(item.html, 50)}
+                            </Card.Text>
                             {/* <Card.Text>{item.description}</Card.Text> */}
                           </Card.Body>
                         </Card>
@@ -306,7 +319,6 @@ const Home: React.FC = () => {
                 ))}
               </Carousel>
             </Col>
-            
           </div>
           <div id="about"></div>
           <div className={Design.aboutSection}>
@@ -474,22 +486,27 @@ const Home: React.FC = () => {
             </Col>
           </div>
 
-          <div className={Design.testimonial}>
-            <div className={Design.testimonialQuotes}>
-              <h2>Testimonial</h2>
-              <Carousel>
-                {testimonials.map((testimonial, index) => (
-                  <Carousel.Item key={index}>
-                    <p>{testimonial.feedback}</p>
-                    <h3>{testimonial.name}</h3>
-                    <p style={{ marginBottom: "100px" }} className={Design.sub}>
-                      {testimonial.treatment}
-                    </p>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
+          {testimonials.length > 0 ? (
+            <div className={Design.testimonial}>
+              <div className={Design.testimonialQuotes}>
+                <h2>Testimonial</h2>
+                <Carousel>
+                  {testimonials.map((testimonial, index) => (
+                    <Carousel.Item key={index}>
+                      <p>{testimonial.feedback}</p>
+                      <h3>{testimonial.name}</h3>
+                      <p
+                        style={{ marginBottom: "100px" }}
+                        className={Design.sub}
+                      >
+                        {testimonial.treatment}
+                      </p>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </div>
             </div>
-          </div>
+          ) : null}
           <SocialFooter />
         </div>
       )}

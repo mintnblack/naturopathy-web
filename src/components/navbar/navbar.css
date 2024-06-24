@@ -105,6 +105,15 @@ nav {
   .login-register {
     display: none;
   }
+
+
+}
+
+
+@media (min-width : 1024px){
+  .mobMenuItem{
+    display: none;
+  }
 }
 
 .navbar-button {
@@ -118,3 +127,4 @@ nav {
   font-weight: 500;
   margin-left: 28px;
 }
+

@@ -138,7 +138,7 @@ const BlogsByCategory: React.FC = () => {
                           style={{ padding: "14px" }}
                         />
                         <Card.Body>
-                        <Card.Title className="card-title">
+                        <Card.Title className=".card-title-custom">
                               {blog.title.length > 55
                                 ? blog.title.slice(0, 55) + "..."
                                 : blog.title}
